@@ -107,7 +107,7 @@ let tl = gsap.timeline({
 
                 gsap.to(path, {
                     strokeDashoffset: pathLength - (pathLength * correctedProgress),
-                    duration: 0.5,
+                    duration: 0.1,
                     ease: "none"
                 });
             } else if (index % 2 == 1 && index < progressSteps.length) {
