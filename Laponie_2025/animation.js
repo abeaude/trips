@@ -98,7 +98,7 @@ let tl = gsap.timeline({
                 stepsLabel.forEach((txt, index) => {
                     txt.setAttribute("visibility", "visible")
                 })
-                gsap.to(svgMap, { attr: { viewBox: "0 0 250 360" } })
+                gsap.to(svgMap, { attr: { viewBox: "0 0 235 320" }, ease: "sine.out" })
                 const step = index / 2
                 const scrollPathDistance = Math.abs(markersPositionOnPath[step + 1] - markersPositionOnPath[step])
                 const stepPercentage = (progress - progressSteps[index]) / (progressSteps[index + 1] - progressSteps[index]);
@@ -107,23 +107,30 @@ let tl = gsap.timeline({
 
                 gsap.to(path, {
                     strokeDashoffset: pathLength - (pathLength * correctedProgress),
-                    duration: 0.5
+                    duration: 0.5,
+                    ease: "none"
                 });
             } else if (index % 2 == 1 && index < progressSteps.length) {
-                gsap.to(svgMap, { attr: { viewBox: stepViewBoxMap.get(index) } })
+                gsap.to(svgMap, { attr: { viewBox: stepViewBoxMap.get(index) }, ease: "sine.in" })
                 stepsLabel.forEach((txt, idx) => {
                     if (!txt.id.includes(journeySteps[~~(index / 2) + 1])) txt.setAttribute("visibility", "hidden")
                 })
             }
         },
         onEnter: self => {
-            gsap.to(svgMap, { attr: { viewBox: "60 240 60 20" } })
+            gsap.to(svgMap, { attr: { viewBox: "60 240 60 20" }, ease: "sine.in" })
             stepsLabel.forEach((txt, index) => {
                 if (!txt.id.includes("paris")) txt.setAttribute("visibility", "hidden")
             })
         },
+        onLeave: self => {
+            gsap.to(svgMap, { attr: { viewBox: "0 0 235 320" }, ease: "sine.out" })
+            stepsLabel.forEach((txt, index) => {
+                txt.setAttribute("visibility", "visible")
+            })
+        },
         onLeaveBack: self => {
-            gsap.to(svgMap, { attr: { viewBox: "0 0 250 360" } })
+            gsap.to(svgMap, { attr: { viewBox: "0 0 235 320" }, ease: "sine.out" })
             stepsLabel.forEach((txt, index) => {
                 txt.setAttribute("visibility", "visible")
             })
