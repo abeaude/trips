@@ -1,0 +1,79 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #005293
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.text-column {
+    width: 65%;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.journey-section {
+    margin-top: 0;
+    margin-bottom: 50vh;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.map-column {
+    width: 35%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#country-fill {
+    fill: #005293;
+}
+
+#country-border {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 0.8
+}
+
+#route {
+    fill: none;
+    stroke: #ffcd00;
+    stroke-width: 1.8
+}
+
+#labels {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    font-stretch: normal;
+    font-size: 10px;
+    line-height: normal;
+    font-family: 'DejaVu Sans';
+    text-anchor: start;
+    fill: #ffcd00
+}
+
+#markers {
+    fill: #ffcd00;
+}
