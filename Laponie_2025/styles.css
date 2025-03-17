@@ -156,3 +156,19 @@ video {
 #markers {
     fill: #ffcd00;
 }
+
+@media screen and (orientation: landscape) {
+    #rotate-device-warning {
+        display: none;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    #rotate-device-warning {
+        display: block;
+        width: 100%;
+        background-color: #0052934d;
+        padding: 10px;
+        border: 5px solid #005293;
+    }
+}
