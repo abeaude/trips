@@ -117,6 +117,7 @@ img {
 video {
     object-fit: cover;
     max-width: 100%;
+    padding: 8px;
 }
 
 .center {
