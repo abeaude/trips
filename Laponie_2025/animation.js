@@ -8,6 +8,7 @@ const container = document.querySelector('.container');
 const pathLength = path.getTotalLength();
 const journeySteps = ["paris", "cologne", "hambourg", "stockholm", "lulea", "abisko", "stockholm"];
 const stepsLabel = Array.from(document.querySelector("#labels").children)
+const allImages = Array.from(document.getElementsByTagName("img"))
 let stepViewBoxMap = new Map();
 stepViewBoxMap.set(1, "95 210 65 30")
 stepViewBoxMap.set(3, "122 190 70 30")
@@ -29,6 +30,14 @@ gsap.set(path, {
     strokeDasharray: pathLength,
     strokeDashoffset: pathLength
 });
+
+allImages.forEach((img, index) => {
+    img.addEventListener("click", function (event) {
+        event.preventDefault();
+        Fancybox.fromNodes(allImages, { startIndex: index, Thumbs: false })
+    });
+})
+
 
 var divTopSteps = [];
 var divBottomSteps = [];
@@ -119,6 +128,8 @@ let tl = gsap.timeline({
         },
         onEnter: self => {
             gsap.to(svgMap, { attr: { viewBox: "60 240 60 20" }, ease: "sine.in" })
+            // pre create all anim in array, stop them and start them when needed and reset 
+            // gsap.to(markers[0], { scale: 1.1, repeat: -1, yoyo: true })
             stepsLabel.forEach((txt, index) => {
                 if (!txt.id.includes("paris")) txt.setAttribute("visibility", "hidden")
             })
