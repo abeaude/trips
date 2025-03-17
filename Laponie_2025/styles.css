@@ -64,6 +64,8 @@ p {
     margin-top: 0;
     margin-bottom: 50vh;
     padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
     border-radius: 12px;
     background-color: white;
     box-shadow: 4px 4px 10px rgba(0, 82, 147, 0.3);
@@ -110,6 +112,11 @@ img {
     border-radius: 12px;
     transition: transform 0.3s ease;
 
+}
+
+video {
+    object-fit: cover;
+    max-width: 100%;
 }
 
 .center {
